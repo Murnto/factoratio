@@ -40,7 +40,7 @@ var logic = {
   editingId: null,
   ratioTree: null,
   recipeTree: null,
-  recipes: [],
+  recipes: {},
   init: function() {
     logic.recipeTree = new Tree("recipe_tree");
     logic.ratioTree = new Tree("ratio_tree");
@@ -56,7 +56,8 @@ var logic = {
     return selectedInserters;
   },
   selectFactories: function(id) {
-    var item = model.treeLines[id.row].item;
+    var itemObj = model.treeLines[id.row].item;
+    var item = itemObj.item;
     var factories = helpers.findFactories(item);
     var selectableFactories = [];
     var itemSpeed = 1;
@@ -80,19 +81,21 @@ var logic = {
     return selectableFactories;
   },
   addRecipe: function(recipe) {
-    logic.recipes.push(recipe);
+    logic.recipes[recipe] = {item: recipe, speed: logic.targetSpeed};
     logic.updateRecipes();
   },
   removeRecipe: function(recipe) {
-    var index = logic.recipes.indexOf(recipe);
-    if (index != -1) {
-      logic.recipes.splice(index)
+    if (logic.recipes[recipe]) {
+      delete logic.recipes[recipe];
       logic.updateRecipes();
     }
   },
   reset: function() {
-    logic.recipes = [];
+    logic.recipes = {};
     logic.updateRecipes();
+  },
+  updateLockSpeed: function(isLocked) {
+    logic.lockSpeed = isLocked;
   },
   updateRecipes: function() {
     model.init();
