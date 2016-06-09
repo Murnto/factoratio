@@ -10,6 +10,18 @@ var ui_scheme = {
       label: "<strong>Factoratio</strong>",
       fillspace: true
     }, {
+      view: "checkbox",
+      labelRight: "<span style='color: white'>Lock speed</span>",
+      labelWidth: 0, // affects the width of left label
+      labelPosition: "right",
+      width: 95,
+      value: 0,
+      on: {
+        onChange: function (newv, oldv) {
+          logic.updateLockSpeed(newv);
+        }
+      }
+    }, {
       view: "button",
       label: "Setup",
       width: 60,
