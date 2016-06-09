@@ -10,7 +10,7 @@ var model = {
     model.productions = {};
     model.treeLines = {};
   },
-  buildProductionTree: function(parentItem, item, relativeSpeed) {
+  buildProductionTree: function (parentItem, item, relativeSpeed, parentLockSpeed) {
     var data = [];
     var recipe = recipes[item];
     var production = model.productions[item];
@@ -28,25 +28,25 @@ var model = {
       $.each(recipe.ingredients, function(index, list) {
         var ingredient = list[0];
         var amount = list[1];
-        data.push(model.buildProductionTree(item, ingredient, relativeSpeed * amount / recipe.resultCount));
+        data.push(model.buildProductionTree(item, ingredient, relativeSpeed * amount / recipe.resultCount, parentLockSpeed));
       });
     }
-    return model.insertLine("p", item, relativeSpeed, data);
+    return model.insertLine("p", item, relativeSpeed, data, true, parentLockSpeed);
   },
   buildRatioTree: function() {
     var data = [];
     $.each(model.productions, function(item, production) {
       var outputs = [];
       $.each(production.outputs, function(outputItem, speed) {
-        var line = model.insertLine("r", outputItem, speed / production.relativeSpeed);
+        var line = model.insertLine("r", outputItem, speed / production.relativeSpeed, true, logic.targetSpeed);
         outputs.push(line);
       });
-      var line = model.insertLine("r", item, production.relativeSpeed, outputs, false);
+      var line = model.insertLine("r", item, production.relativeSpeed, outputs, false, logic.targetSpeed);
       data.push(line);
     });
     return data;
   },
-  insertLine: function(type, item, speed, children, open) {
+  insertLine: function (type, item, speed, children, open, parentLockSpeed) {
     model.id++;
     var uniqueId = type + "_" + model.id;
     var line = {
@@ -55,7 +55,8 @@ var model = {
       item: item,
       relativeSpeed: speed,
       open: open == undefined ? true : open,
-      data: children
+      data: children,
+      lockSpeed: parentLockSpeed
     };
     model.treeLines[uniqueId] = line;
     return line;

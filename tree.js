@@ -37,9 +37,6 @@ function Tree(name) {
       if (resources[item] !== undefined && factories[factory].speed == 'calculate') {
         // factorySpeed = (resources[item].miningTime / (factories[factory].miningPower - resources[item].hardness) * factories[factory].miningSpeed) * itemSpeed;
         factorySpeed = (factories[factory].miningPower - resources[item].hardness) * factories[factory].miningSpeed / resources[item].miningTime;
-        console.log('calcSpeed', item, factory, factorySpeed);
-        console.log(resources[item].miningTime, factories[factory].miningPower, resources[item].hardness, factories[factory].miningSpeed);
-        console.log(resources[item], factories[factory]);
       } else {
         factorySpeed = factories[factory].speed * itemSpeed * recipes[item].resultCount;
       }
@@ -56,7 +53,17 @@ function Tree(name) {
   this.updateTargetSpeed = function() {
     tree.webixTree.eachRow(function(id) {
       var line = model.treeLines[id];
-      line.targetSpeed = logic.targetSpeed * line.relativeSpeed;
+      var realTargetSpeed;
+      if (logic.lockSpeed) {
+        realTargetSpeed = line.lockSpeed;
+      } else {
+        realTargetSpeed = logic.targetSpeed;
+        line.lockSpeed = logic.targetSpeed;
+        if (logic.recipes[line.item]) {
+          logic.recipes[line.item].speed = logic.targetSpeed;
+        }
+      }
+      line.targetSpeed = realTargetSpeed * line.relativeSpeed;
     }, true);
     tree.optimize();
   };
