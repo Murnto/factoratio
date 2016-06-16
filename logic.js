@@ -56,8 +56,7 @@ var logic = {
     return selectedInserters;
   },
   selectFactories: function(id) {
-    var itemObj = model.treeLines[id.row].item;
-    var item = itemObj.item;
+    var item = model.treeLines[id.row].item;
     var factories = helpers.findFactories(item);
     var selectableFactories = [];
     var itemSpeed = 1;
