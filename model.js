@@ -38,7 +38,7 @@ var model = {
     $.each(model.productions, function(item, production) {
       var outputs = [];
       $.each(production.outputs, function(outputItem, speed) {
-        var line = model.insertLine("r", outputItem, speed / production.relativeSpeed, true, logic.targetSpeed);
+        var line = model.insertLine("r", outputItem, speed / production.relativeSpeed, undefined, true, logic.targetSpeed);
         outputs.push(line);
       });
       var line = model.insertLine("r", item, production.relativeSpeed, outputs, false, logic.targetSpeed);
