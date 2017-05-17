@@ -47,6 +47,11 @@ var ui_scheme = {
       view: "combo",
       label: "Recipe",
       suggest: {
+        filter: function (item, value) {
+          if (item.value.toString().toLowerCase().indexOf(value.toLowerCase()) >= 0) return true;
+
+          return item.id.toString().toLowerCase().indexOf(value.toLowerCase()) >= 0;
+        },
         data: selectRecipes
       },
       id: "selected_recipe"
