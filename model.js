@@ -51,7 +51,7 @@ var model = {
     var uniqueId = type + "_" + model.id;
     var line = {
       id: uniqueId,
-      name: helpers.getName(item),
+      value: helpers.getName(item),
       item: item,
       relativeSpeed: speed,
       open: open == undefined ? true : open,

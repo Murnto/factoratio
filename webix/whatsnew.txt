@@ -1,3 +1,232 @@
+Version 4.3 (April 2017)
+================
+
+### Major features
+
+- BulletChart integration
+- DoubleList and FormInput widgets
+- compatibility with ReactJS
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_4_3.html)
+
+
+Version 4.2 (February 2017)
+================
+
+### Major features
+
+- VueJs integration
+- ability to upload Folders
+- export to CSV for all widgets
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_4_2.html)
+
+
+Version 4.1 (November 2016)
+================
+
+### Major features
+
+- Gage widget
+- RichText widget
+- Exra modes for charts
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_4_1.html)
+
+
+Version 4.0 (September 2016)
+================
+
+### Major features
+
+- ARIA compatibility
+- Keyboard navigation for all widgets
+- High-contrast theme
+- DateRange control
+- FlexLayout control
+- Google Map control
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_4_0.html)
+
+
+Version 3.4 (July 2016)
+================
+
+### Major features
+
+- "Frozen" rows in datatable
+- Patterns for text inputs
+- Area, Spline, Pie and Bar sparklines
+- "Month" and "year" time pickers
+- Webix Remote
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_3_3.html)
+
+
+Version 3.3 (April 2016)
+================
+
+### Major features
+
+- AbsLayout widget
+- DataLayout widget
+- sparklines for DataTable and TreeTable
+- ability to use JSON payload in Ajax calls
+- drag-n-drop on touch devices
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_3_3.html)
+
+
+Version 3.2 (February 2016)
+================
+
+### Major features
+
+- Spreadsheet widget
+- Rangechart widget
+- undo functionality
+- export to PDF
+- area selection
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_3_2.html)
+
+
+Version 3.1
+==============
+
+### Major features
+
+- SideMenu widget
+- SideBar widget
+- TreeMap widget
+- autowidth for menu and buttons
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_3_1.html)
+
+
+Version 3.0
+==============
+
+### New tools
+
+- Visual editor
+- Webix Jet frameworks
+
+### Major features
+
+- Excel viewer
+- PDF viewer
+- export to Excel
+- export to PNG
+- SubViews and SubGrids
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_3_0.html)
+
+
+Version 2.5
+==============
+
+### Major features
+
+- Support of Microsoft Edge
+- Handling of complex data in Form widget
+- Swimlanes in Kanban widget
+- Total calculations in Pivot widget
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_2_5.html)
+
+
+Version 2.4
+==============
+
+### Major features
+
+- Portlet widget
+- MultiCombo widget
+- Range Slider widget
+- Advanced validation messages for forms
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_2_4.html)
+
+
+Version 2.3
+============
+
+### Major features
+
+- New material skin
+- Barcode widget
+- Organogram (organization chart) widget
+- Badges and icons for list, buttons and menus (and views based on them)
+- "Today" and "Clear" buttons are added to the date editor.
+- Better default styling, ability to customize layout configuration
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_2_3.html)
+
+
+Version 2.2
+================
+
+### Major features
+- Data binding for Tree, TreeTable and TreeCollection
+- Optional Today and Clear buttons in the Calendar
+- Ability to define file types for file uploader
+- Webix.ajax api can be used to fetch binary data ( file downloading by ajax )
+- Optional hover for rows in datatable
+- Improved scrolling on touch devices
+
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_2_2.html)
+
+
+Version 2.1
+================
+
+### Major features
+- Better compatibility with Bootstrap and jQuery
+- Icon font contains 479 icons now ( Font Awesome updated to 4.2 )
+- "strict" mode for Webix
+- Datatable and treetable math can be extended with custom functions
+- Uploader can work in Internet Explorer 8
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_2_1.html)
+
+
+Version 2.0
+================
+
+### Major features
+
+- Promises API for all ajax operations
+- Progress bars and overlays
+- Icons and close button in tabbar
+- Improved keyboard navigation
+- Extra locales added
+- Package includes source map files
+- [pro] PRO edition includes Pivot component
+- [pro] Multiselect and multitext inputs
+- [pro] Advanced editors for DataTable and Property views
+- [pro] Colspans and Rowspans in DataTable
+- [pro] Column menu in DataTable
+- [pro] Optional custom scrollbars
+- [pro] Grouped columns in DataTable
+- [pro] Advanced filters for DataTable
+
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_2.html)
+
+
+Version 1.10
+================
+
+### Major new features
+
+- IE12 compatibility
+- Column Batches in the DataTable
+
+[Full list of changes and fixes](http://docs.webix.com/desktop__whats_new_1_10.html)
+
+
 Version 1.9
 ================
 
