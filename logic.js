@@ -99,7 +99,7 @@ var logic = {
   updateRecipes: function() {
     model.init();
     var recipeTree = $.map(logic.recipes, function(recipe) {
-      return model.buildProductionTree(null, recipe.item, 1, recipe.speed);
+      return model.buildProductionTree(null, recipe.item, 1, recipe.speed, {});
     });
     var ratioTree = model.buildRatioTree();
     $$("recipe_tree").clearAll();

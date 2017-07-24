@@ -80,6 +80,9 @@ var helpers = {
   },
   getName: function(item) {
     if (recipes[item] != null) {
+      if (recipes[item].title) {
+        return recipes[item].title + ' (' + recipes[item].name + ')';
+      }
       return recipes[item].name;
     } else if (resources[item] != null) {
       return resources[item].name;

@@ -9,8 +9,9 @@ var model = {
     model.id = 0;
     model.productions = {};
     model.treeLines = {};
+    model.dupes = {};
   },
-  buildProductionTree: function (parentItem, item, relativeSpeed, parentLockSpeed) {
+  buildProductionTree: function (parentItem, item, relativeSpeed, parentLockSpeed, dupeCheck) {
     var data = [];
     var recipe = recipes[item];
     var production = model.productions[item];
@@ -24,14 +25,29 @@ var model = {
       }
       production.outputs[parentItem] += relativeSpeed;
     }
+    
+    dupeCheck[item] = {item: item, data: data, duped: false};
+    
     if (recipe) {
       $.each(recipe.ingredients, function(index, list) {
         var ingredient = list[0];
         var amount = list[1];
-        data.push(model.buildProductionTree(item, ingredient, relativeSpeed * amount / recipe.resultCount, parentLockSpeed));
+
+        if (!dupeCheck[ingredient]) {
+          var childDupeCheck = $.extend({}, dupeCheck);
+          data.push(model.buildProductionTree(item, ingredient, relativeSpeed * amount / recipe.resultCount, parentLockSpeed, childDupeCheck));
+        } else {
+          // console.log('dupe at', dupeCheck[ingredient], data);
+          
+          dupeCheck[ingredient].duped = true;
+          recipes[ingredient] = undefined; // allows resources to have proper names
+          model.dupes[ingredient] = true;
+
+          data.push(model.insertLine("p", undefined, undefined, [], true, parentLockSpeed));
+        }
       });
     }
-    return model.insertLine("p", item, relativeSpeed, data, true, parentLockSpeed);
+    return model.insertLine("p", item, relativeSpeed, model.dupes[item] ? [] : data, true, parentLockSpeed);
   },
   buildRatioTree: function() {
     var data = [];
