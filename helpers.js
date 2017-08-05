@@ -5,7 +5,7 @@ selectRecipes = [];
 $.each(recipes, function(name, recipe) {
   selectRecipes.push({
     id: name,
-    value: recipe.name
+    value: recipe.title ? recipe.title : recipe.name
   })
 });
 selectRecipes.sort(function(a, b) {
